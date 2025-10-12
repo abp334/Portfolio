@@ -21,19 +21,19 @@ export const Resume = () => {
   return (
     <section id="resume" className="py-20 ">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center animate-fade-in">
-          <div className="glass-card rounded-lg p-12 space-y-6">
-            <div className="flex justify-center mb-6">
-              <div className="p-4 rounded-full bg-primary/10 border border-primary/20">
-                <FileText className="h-12 w-12 text-primary" />
+        <div className="max-w-3xl mx-auto text-center animate-fade-in-up">
+          <div className="glass-card rounded-lg p-12 space-y-6 hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 group">
+            <div className="flex justify-center mb-6 animate-fade-in-up delay-100">
+              <div className="p-4 rounded-full bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                <FileText className="h-12 w-12 text-primary group-hover:rotate-12 transition-transform duration-300" />
               </div>
             </div>
 
-            <h2 className="text-4xl font-bold">
+            <h2 className="text-4xl font-bold animate-fade-in-up delay-200">
               Download My <span className="gradient-text">Resume</span>
             </h2>
 
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-lg animate-fade-in-up delay-300">
               Get a detailed overview of my education, skills, and projects. My
               resume showcases my technical expertise and passion for software
               development.
@@ -41,10 +41,10 @@ export const Resume = () => {
 
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 group"
+              className="bg-primary hover:bg-primary/90 group hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 animate-fade-in-up delay-400"
               onClick={handleDownload}
             >
-              <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+              <Download className="mr-2 h-5 w-5 group-hover:animate-bounce group-hover:rotate-12 transition-transform duration-300" />
               Download Resume
             </Button>
 

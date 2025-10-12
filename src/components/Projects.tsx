@@ -51,11 +51,11 @@ export const Projects = () => {
       className="py-20 bg-gradient-to-b from-background to-secondary/20"
     >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl font-bold mb-4">
+        <div className="text-center mb-12 animate-fade-in-up">
+          <h2 className="text-4xl font-bold mb-4 animate-fade-in-up delay-100">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
             Here are some of my recent projects that showcase my skills and
             passion for development.
           </p>
@@ -65,7 +65,7 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="glass-card rounded-lg overflow-hidden hover:glow-border transition-all duration-300 animate-scale-in"
+              className="glass-card rounded-lg overflow-hidden hover:glow-border transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 animate-scale-in group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Project Image */}
@@ -73,7 +73,7 @@ export const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-2"
                 />
               </div>
 

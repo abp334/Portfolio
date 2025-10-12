@@ -55,11 +55,11 @@ export const Contact = () => {
       className="py-20 bg-gradient-to-b from-background to-secondary/20"
     >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl font-bold mb-4">
+        <div className="text-center mb-12 animate-fade-in-up">
+          <h2 className="text-4xl font-bold mb-4 animate-fade-in-up delay-100">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
             Have a project in mind or want to collaborate? Feel free to reach
             out!
           </p>
@@ -68,15 +68,15 @@ export const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8 animate-slide-in-left">
-            <div className="glass-card rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-6">
+            <div className="glass-card rounded-lg p-6 hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 group">
+              <h3 className="text-xl font-semibold mb-6 animate-fade-in-up delay-300">
                 Contact Information
               </h3>
 
               <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
-                    <Mail className="h-5 w-5 text-primary" />
+                <div className="flex items-start gap-4 group">
+                  <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                    <Mail className="h-5 w-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
@@ -86,9 +86,9 @@ export const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
-                    <Phone className="h-5 w-5 text-primary" />
+                <div className="flex items-start gap-4 group">
+                  <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                    <Phone className="h-5 w-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
                   </div>
                   <div>
                     <p className="font-medium">Phone</p>
@@ -98,9 +98,9 @@ export const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
-                    <MapPin className="h-5 w-5 text-primary" />
+                <div className="flex items-start gap-4 group">
+                  <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                    <MapPin className="h-5 w-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
                   </div>
                   <div>
                     <p className="font-medium">Location</p>
@@ -114,10 +114,10 @@ export const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="animate-fade-in">
+          <div className="animate-slide-in-right">
             <form
               onSubmit={handleSubmit}
-              className="glass-card rounded-lg p-6 space-y-6"
+              className="glass-card rounded-lg p-6 space-y-6 hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 group"
             >
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium">
@@ -183,14 +183,14 @@ export const Contact = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-primary hover:bg-primary/90"
+                className="w-full bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 group"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
                   "Sending..."
                 ) : (
                   <>
-                    <Send className="mr-2 h-4 w-4" />
+                    <Send className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
                     Send Message
                   </>
                 )}

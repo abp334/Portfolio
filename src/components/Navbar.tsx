@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import GradientText from "./ui/GradientText"; // Import the new component
 
 const navItems = [
   { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Resume", href: "#resume" },
   { name: "Testimonials", href: "#testimonials" },
@@ -60,9 +62,11 @@ export const Navbar = () => {
               e.preventDefault();
               scrollToSection("#about");
             }}
-            className="text-2xl font-bold gradient-text"
+            className="text-2xl font-bold group transition-all duration-300 hover:scale-105"
           >
-            Aayush Pandya
+            <GradientText className="gradient-text group-hover:animate-pulse">
+              Aayush Pandya
+            </GradientText>
           </a>
 
           {/* Desktop Navigation */}
@@ -75,13 +79,14 @@ export const Navbar = () => {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium relative group transition-all duration-300 hover:text-primary hover:scale-105 ${
                   activeSection === item.href.substring(1)
                     ? "text-primary"
                     : "text-muted-foreground"
                 }`}
               >
-                {item.name}
+                <span className="relative z-10">{item.name}</span>
+                <span className="absolute inset-0 bg-primary/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out"></span>
               </a>
             ))}
           </div>
@@ -90,10 +95,12 @@ export const Navbar = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden transition-all duration-300 hover:scale-110 hover:rotate-12"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X /> : <Menu />}
+            <div className="transition-transform duration-300">
+              {isMobileMenuOpen ? <X className="rotate-180" /> : <Menu />}
+            </div>
           </Button>
         </div>
 
@@ -108,13 +115,14 @@ export const Navbar = () => {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className={`block py-2 text-sm font-medium transition-colors hover:text-primary ${
+                className={`block py-3 px-2 text-sm font-medium relative group transition-all duration-300 hover:text-primary hover:translate-x-2 rounded-md ${
                   activeSection === item.href.substring(1)
                     ? "text-primary"
                     : "text-muted-foreground"
                 }`}
               >
-                {item.name}
+                <span className="relative z-10">{item.name}</span>
+                <span className="absolute left-0 top-0 bottom-0 w-1 bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out rounded-r-full"></span>
               </a>
             ))}
           </div>
