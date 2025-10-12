@@ -86,7 +86,7 @@ export const Navbar = () => {
                 }`}
               >
                 <span className="relative z-10">{item.name}</span>
-                <span className="absolute inset-0 bg-primary/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out"></span>
+                <span className="absolute inset-0 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out"></span>
               </a>
             ))}
           </div>
