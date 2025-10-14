@@ -5,9 +5,9 @@ import GradientText from "./ui/GradientText"; // Import the new component
 
 const navItems = [
   { name: "About", href: "#about" },
+  { name: "Resume", href: "#resume" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
-  { name: "Resume", href: "#resume" },
   { name: "Testimonials", href: "#testimonials" },
   { name: "Hackathons", href: "#hackathons" },
   { name: "Contact", href: "#contact" },

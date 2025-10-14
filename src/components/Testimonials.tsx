@@ -39,8 +39,8 @@ export const Testimonials = () => {
             What People <span className="gradient-text">Say</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Feedback from professors, peers, and collaborators I've had the
-            privilege to work with.
+            Feedback from peers and collaborators I've had the privilege to work
+            with.
           </p>
         </div>
 
