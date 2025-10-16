@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "emailjs-com";
+import ReCAPTCHA from "react-google-recaptcha";
+
 export const Contact = () => {
   const { toast } = useToast();
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,9 +17,20 @@ export const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaVerified, setCaptchaVerified] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!captchaVerified) {
+      toast({
+        title: "Verification Required",
+        description: "Please verify that you're not a robot.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -38,6 +52,7 @@ export const Contact = () => {
       });
 
       setFormData({ name: "", email: "", subject: "", message: "" });
+      setCaptchaVerified(false);
     } catch (error) {
       toast({
         title: "Error",
@@ -66,7 +81,7 @@ export const Contact = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Contact Information */}
+          {/* Contact Info */}
           <div className="space-y-8 animate-slide-in-left">
             <div className="glass-card rounded-lg p-6 hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 group">
               <h3 className="text-xl font-semibold mb-6 animate-fade-in-up delay-300">
@@ -116,6 +131,7 @@ export const Contact = () => {
           {/* Contact Form */}
           <div className="animate-slide-in-right">
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="glass-card rounded-lg p-6 space-y-6 hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 group"
             >
@@ -181,10 +197,17 @@ export const Contact = () => {
                 />
               </div>
 
+              <div className="flex justify-center">
+                <ReCAPTCHA
+                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                  onChange={() => setCaptchaVerified(true)}
+                />
+              </div>
+
               <Button
                 type="submit"
                 className="w-full bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 group"
-                disabled={isSubmitting}
+                disabled={!captchaVerified || isSubmitting}
               >
                 {isSubmitting ? (
                   "Sending..."
