@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 // TODO: Replace with your actual Google Drive resume link
 const RESUME_LINK =
-  "https://drive.google.com/file/d/1Cy7qjydwF7vMdzzmOCRsa6C8yDd62LFB/view?usp=share_link";
+  "https://drive.google.com/file/d/1FIX8aY5Ayt4gx4BUCbQ7Axjq6pEu4dF2/view?usp=share_link";
 
 export const Resume = () => {
   const handleDownload = () => {
